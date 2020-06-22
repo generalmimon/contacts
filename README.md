@@ -2,7 +2,7 @@
 
 Contacts is a simple desktop app for Windows written in C# WPF. It can be used for saving contacts on your local drive. It has only the basic funcionality: add, edit and remove a single contact/remove all contacts.
 
-All contacts are stored in a CSV file without header (semicolon delimited). The file is located at `%APPDATA%/Kontakty/kontakty.csv`. They can be imported and exported in this format.
+All contacts are stored in a CSV file without header (semicolon delimited). They can be imported and exported in this format. The file is located at `%APPDATA%/Kontakty/kontakty.csv`.
 
 Every line in the CSV file has the following format:
 
