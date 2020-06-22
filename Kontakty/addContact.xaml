@@ -1,0 +1,31 @@
+﻿<Window x:Class="Kontakty.addContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kontakty"
+        mc:Ignorable="d"
+        Title="Přidat kontakt" Height="180" Width="260" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" FocusManager.FocusedElement="{Binding ElementName=firstnameInp}">
+    <Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="30"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Label Content="_Jméno" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Target="{Binding ElementName=firstnameInp}"/>
+		<TextBox Name="firstnameInp" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" TextWrapping="NoWrap"/>
+		<Label Content="_Příjmení" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Target="{Binding ElementName=surnameInp}"/>
+		<TextBox Name="surnameInp" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" TextWrapping="NoWrap"/>
+		<Label Content="_Telefon" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Target="{Binding ElementName=telInp}"/>
+		<TextBox Name="telInp" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextWrapping="NoWrap" LostFocus="telInp_LostFocus" GotFocus="telInp_GotFocus"/>
+		<Label Content="_E-mail" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Target="{Binding ElementName=emailInp}"/>
+		<TextBox Name="emailInp" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextWrapping="NoWrap"/>
+		<Button Name="confirmBut" Content="OK" IsDefault="True" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Click="confirmBut_Click"/>
+	</Grid>
+</Window>

@@ -1,0 +1,66 @@
+﻿<Window x:Class="Kontakty.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kontakty"
+        mc:Ignorable="d"
+        Title="Kontakty" Height="300" Width="400" WindowStartupLocation="CenterScreen" Icon="contact.ico">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="18"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="30"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+		<Menu x:Name="menu" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="18" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+			<MenuItem Header="_Soubor">
+				<MenuItem Name="importItem" Header="Importovat" Click="importItem_Click">
+					<MenuItem.Icon>
+						<Image Source="download.ico"></Image>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Name="exportItem" Header="Exportovat" Click="exportItem_Click">
+					<MenuItem.Icon>
+						<Image Source="upload.ico"></Image>
+					</MenuItem.Icon>
+				</MenuItem>
+				<Separator/>
+				<MenuItem Name="removeAllItem" Header="Odstranit vše" Click="removeAllItem_Click">
+					<MenuItem.Icon>
+						<Image Source="remove-all.ico"></Image>
+					</MenuItem.Icon>
+				</MenuItem>
+			</MenuItem>
+		</Menu>
+
+		<ListBox Name="contactsListBox" DisplayMemberPath="Fullname" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Margin="10,10,10,0" SelectionChanged="contactsListBox_SelectionChanged"/>
+		<Button Name="addContactBut" Content="_přidat" Grid.Row="2" Grid.Column="0" Margin="10,0,10,10" Click="addContactBut_Click"/>
+		<StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+			<StackPanel Orientation="Horizontal" Margin="5">
+				<TextBlock TextWrapping="Wrap" Text="Jméno: "/>
+				<TextBlock Name="firstnameTxt" Text="{Binding ElementName=contactsListBox, Path=SelectedItem.Firstname}" FontWeight="Bold" TextWrapping="NoWrap"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5">
+				<TextBlock TextWrapping="Wrap" Text="Příjmení: "/>
+				<TextBlock Name="surnameTxt" Text="{Binding ElementName=contactsListBox, Path=SelectedItem.Surname}" FontWeight="Bold" TextWrapping="NoWrap"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5">
+				<TextBlock TextWrapping="Wrap" Text="Telefon: "/>
+				<TextBlock Name="telTxt" Text="{Binding ElementName=contactsListBox, Path=SelectedItem.Tel}" FontWeight="Bold" TextWrapping="NoWrap"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5">
+				<TextBlock TextWrapping="Wrap" Text="E-mail: "/>
+				<TextBlock Name="emailTxt" Text="{Binding ElementName=contactsListBox, Path=SelectedItem.Email}" FontWeight="Bold" TextWrapping="NoWrap"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Center" Orientation="Horizontal">
+			<Button Name="editContactBut" Content="_upravit" Width="80" Margin="5,0" VerticalAlignment="Stretch" IsEnabled="False" Click="editContactBut_Click"/>
+			<Button Name="removeContactBut" Content="_odstranit" Width="80" Margin="5,0" VerticalAlignment="Stretch" IsEnabled="False" Click="removeContactBut_Click"/>
+		</StackPanel>
+
+	</Grid>
+</Window>
